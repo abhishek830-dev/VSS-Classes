@@ -33,17 +33,10 @@ Vidhya Skill School
 mkdir name
 touch file.txt
 
-Priyanshi Awasthi
-12:00
-
 Task - Setup SSH using github with your local machine so that we can clone or work with a repo using SSH
 
 
-
-------------------------------------------------02/01/2026------------------------------------------------------------------------------
-
-
-
+------------------------------------------------------------02/01/2026--------------------------------------------------------------------
 
 
 https://docs.github.com/en/authentication/connecting-to-github-with-ssh/about-ssh
@@ -87,66 +80,20 @@ git push --set-upstream origin main
 git push -u origin main
 
 
-
-
-
--------
-
-
-
-Shivani Vishwakarma
-07:22
-rb in 2 min
-
-Pinky Thawani
-07:37
-rb in 2 min
-
-vikas vanve
-07:50
-rb in 2min
-
 Vidhya Skill School
 07:51
 https://codeshare.io/2KL6d8
 
-Aviral Jain
-07:52
-Need to leave
 
-Kunal Khatri
-07:58
-rb in 2 min
-
-VICKY GUPTA
-08:08
-rb in 2 min
 
 Vidhya Skill School
 08:18
 https://codeshare.io/2BnOld
 padding : 6px 32px
 
-VICKY GUPTA
-08:22
-rb in 2 min
 
-Nilesh lohar
-08:25
-rb in 5 min
-
-Kunal Khatri
-08:26
-Need to Leave
-
-Ashitosh Vidhate
-08:29
-need to leave bhaiya
 C12 | Software Engineering | I'm an engineer
-
 
 https://codepen.io/yemon/pen/pWoROm
 
 https://codepen.io/ste-vg/pen/oKYjKV
-
-
