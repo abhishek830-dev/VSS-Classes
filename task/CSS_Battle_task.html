@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS_Battle</title>
+  </head>
+  <body>
+    <div class="main">
+      <div class="even"></div>
+      <div class="odd"><div class="circle"></div></div>
+      <div class="even"></div>
+      <div class="odd"><div class="circle"></div></div>
+      <div class="even"></div>
+      <div class="odd"><div class="circle"></div></div>
+      <div class="even"></div>
+      <div class="odd"><div class="circle"></div></div>
+      <div class="even"></div>
+      <div class="odd"><div class="circle"></div></div>
+      <div class="even"></div>
+      <div class="odd"></div>
+      <div class="even"></div>
+      <div class="odd"></div>
+      <div class="even"></div>
+      <div class="odd"><div class="circle"></div></div>
+      <div class="even"></div>
+      <div class="odd"><div class="circle"></div></div>
+      <div class="even"></div>
+      <div class="odd"><div class="circle"></div></div>
+      <div class="even"></div>
+      <div class="odd"><div class="circle"></div></div>
+      <div class="even"></div>
+      <div class="odd"><div class="circle"></div></div>
+      <div class="even"></div>
+    </div>
+
+    <style>
+      * {
+        margin: 0px;
+      }
+      body {
+        background-color: #e3516e;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+      }
+      .main {
+        margin: 50px;
+        gap: 0px;
+        display: grid;
+        grid-template-columns: repeat(5, 40px);
+      }
+      .even {
+        background-color: #fade8b;
+        width: 40px;
+        height: 40px;
+      }
+      .odd {
+        background-color: #e3516e;
+        width: 40px;
+        height: 40px;
+      }
+      .circle {
+        background-color: #fade8b;
+        margin: 10px;
+        border-radius: 15px;
+      }
+    </style>
+  </body>
+</html>

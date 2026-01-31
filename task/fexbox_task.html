@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flipkart Clone</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        margin: 0;
+        font-family: lato, sans-serif;
+      }
+
+      .main-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 24px;
+        background-color: white;
+        color: black;
+      }
+
+      .logo img {
+        height: 40px;
+      }
+
+      .search-box input {
+        width: 400px;
+        padding: 8px 12px;
+        border-radius: 7px;
+        border: none;
+        outline: none;
+      }
+
+      .actions {
+        display: flex;
+        gap: 20px;
+        font-weight: bold;
+        align-items: center;
+      }
+
+      .login-btn {
+        cursor: pointer;
+        padding: 6px 14px;
+        margin: 20px;
+        border: none;
+        border-radius: 4px;
+        background: white;
+        color: black;
+        font-weight: bold;
+      }
+
+      .cart {
+        cursor: pointer;
+        padding: 6px 14px;
+        border: none;
+        border-radius: 4px;
+        background: white;
+        color: black;
+        font-weight: bold;
+      }
+
+      .three-dot {
+        position: relative;
+        cursor: pointer;
+      }
+
+      .dot-btn {
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      .dot-menu {
+        position: absolute;
+        top: 30px;
+        right: 0;
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        min-width: 140px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        display: none;
+        z-index: 10;
+      }
+
+      .dot-menu a {
+        display: block;
+        padding: 8px 12px;
+        text-decoration: none;
+        color: #333;
+        font-size: 14px;
+      }
+
+      .dot-menu a:hover {
+        background: #f2f2f2;
+      }
+
+      /* Hover par open */
+      .three-dot:hover .dot-menu {
+        display: block;
+      }
+
+      .secondary-container {
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        background: #fff;
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      ul.action-menus {
+        display: flex;
+        list-style-type: none;
+        padding: 12px;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: nowrap;
+      }
+
+      ul.action-menus li {
+        /* padding: 12px; */
+        min-width: max-content;
+        flex: 0 0 auto;
+
+        /* background-color: tomato; */
+      }
+
+      ul.action-menus li a {
+        display: flex;
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+
+      }
+      ul.action-menus li a .action-menu-item img {
+        width: 64px;
+        height: 64px;
+        object-fit: contain;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="main-header">
+        <div class="logo">
+          <img
+            src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/fkheaderlogo_exploreplus-11f9e2.svg"
+          />
+        </div>
+
+        <div class="search-box">
+          <input
+            type="text"
+            placeholder="Search for products, brands and more"
+          />
+        </div>
+
+        <div class="actions">
+          <span class="login-btn">Login</span>
+          <span class="cart">Cart</span>
+          <span class="cart">Become a Seller</span>
+
+          <div class="three-dot">
+            <span class="dot-btn">⋮</span>
+            <div class="dot-menu">
+              <a href="">Notifications Preferences</a>
+              <a href="">24x7 Customer Care</a>
+              <a href="">Advertise</a>
+              <a href="">Download App</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="secondary-container">
+        <ul class="action-menus">
+          <li>
+            <a
+              href="https://www.flipkart.com/hyperlocal-preview-page?marketplace=HYPERLOCAL&originalUrl=%2Fflipkart-minutes-store%3Fmarketplace%3DHYPERLOCAL%26fm%3Dneo%252Fmerchandising%26iid%3DM_12e14d70-c9ed-4dab-8f52-5cc9ac0a8c4e_1_X1NCR146KC29_MC.HPVQFYHAHC9Q%26cid%3DHPVQFYHAHC9Q"
+            >
+              <div class="action-menu-item">
+                <img
+                  src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/e00302d428f5c7be.png?q=100"
+                />
+              </div>
+              <span>Minutes</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.flipkart.com">
+              <div class="action-menu-item">
+                <img
+                  src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/5f2ee7f883cdb774.png?q=100"
+                />
+              </div>
+              <span>TV & Appliances</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.flipkart.com">
+              <div class="action-menu-item">
+                <img
+                  src="https://rukminim1.flixcart.com/fk-p-flap/64/64/image/ff559cb9d803d424.png?q=100"
+                />
+              </div>
+              <span>Fashion</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.flipkart.com">
+              <div class="action-menu-item">
+                <img
+                  src="https://rukminim1.flixcart.com/fk-p-flap/64/64/image/af646c36d74c4be9.png?q=100"
+                />
+              </div>
+              <span>Electronics</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.flipkart.com">
+              <div class="action-menu-item">
+                <img
+                  src="https://rukminim1.flixcart.com/fk-p-flap/64/64/image/e90944802d996756.jpg?q=100"
+                />
+              </div>
+              <span>TVs & Appliances</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.flipkart.com">
+              <div class="action-menu-item">
+                <img
+                  src="https://rukminim1.flixcart.com/fk-p-flap/64/64/image/1788f177649e6991.png?q=100"
+                />
+              </div>
+              <span>Home & Furniture</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.flipkart.com">
+              <div class="action-menu-item">
+                <img
+                  src="https://rukminim1.flixcart.com/fk-p-flap/64/64/image/3c647c2e0d937dc5.png?q=100"
+                />
+              </div>
+              <span>Flight Bookings</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.flipkart.com">
+              <div class="action-menu-item">
+                <img
+                  src="https://rukminim1.flixcart.com/fk-p-flap/64/64/image/b3020c99672953b9.png?q=100"
+                />
+              </div>
+              <span>Beauty, Food & Personal Care</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.flipkart.com">
+              <div class="action-menu-item">
+                <img
+                  src="https://rukminim1.flixcart.com/fk-p-flap/64/64/image/3c647c2e0d937dc5.png?q=100"
+                />
+              </div>
+              <span>Grocery</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </header>
+  </body>
+</html>

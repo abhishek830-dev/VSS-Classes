@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Twitter Task</title>
+
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #e6ecf0;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+    
+        .tweet-card {
+            background-color: white;
+            width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 16px;
+        }
+    
+        .tweet-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+    
+        .profile {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: gray;
+        }
+    
+        .user-box .username {
+            font-weight: bold;
+            font-size: 16px;
+        }
+    
+        .user-box .tweet-user-name {
+            color: gray;
+            font-size: 14px;
+        }
+    
+        .tweet-text {
+            margin-top: 12px;
+            font-size: 16px;
+        }
+    
+        .Media img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 12px;
+        }
+    
+        .tweet-actions {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid #e1e8ed;
+        }
+    
+        .action {
+            color: gray;
+            cursor: pointer;
+        }
+    </style>
+
+
+  </head>
+  <body>
+    <div class="tweet-card">
+      <header>
+        <div class="tweet-header">
+          <div class="profile"></div>
+
+          <div class="user-box">
+            <div class="username">DAVID</div>
+            <div class="tweet-user-name">@DAVID92.15h</div>
+          </div>
+        </div>
+
+        <div class="tweet-text">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus quisquam odio animi expedita reprehenderit id eum adipisci illo a, consequatur assumenda! Excepturi expedita provident error id nisi distinctio omnis corrupti!
+        </div>
+
+        <div class="Media"><img src="https://pbs.twimg.com/media/G_lR0D8XQAAjHyw?format=jpg" alt=""></div>
+
+        <div class="tweet-actions">
+            <div class="comment action">Comment</div>
+            <div class="retweet action">Retweet</div>
+            <div class="like action">Like</div>
+            <div class="share action">Share</div>
+      </header>
+    </div>
+  </body>
+</html>
