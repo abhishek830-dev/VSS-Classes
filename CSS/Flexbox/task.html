@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task</title>
+    <style>
+      .row {
+        background: #22c1c3;
+        background: -webkit-linear-gradient(
+          0deg,
+          rgba(34, 193, 195, 1) 26%,
+          rgba(253, 187, 45, 1) 100%
+        );
+        background: -moz-linear-gradient(
+          0deg,
+          rgba(34, 193, 195, 1) 26%,
+          rgba(253, 187, 45, 1) 100%
+        );
+        background: linear-gradient(
+          0deg,
+          rgba(34, 193, 195, 1) 26%,
+          rgba(253, 187, 45, 1) 100%
+        );
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#22C1C3", endColorstr="#FDBB2D", GradientType=0);
+        display: flex;
+        gap: 12px;
+        padding: 12px;
+        justify-content: center;
+        align-items: center;
+        height: 250px;
+      }
+
+      .item {
+        background-color: cornflowerblue;
+      }
+
+      .column {
+        background: #f797c4;
+        background: -webkit-linear-gradient(
+          256deg,
+          rgba(247, 151, 196, 1) 100%,
+          rgba(25, 118, 224, 1) 14%
+        );
+        background: -moz-linear-gradient(
+          256deg,
+          rgba(247, 151, 196, 1) 100%,
+          rgba(25, 118, 224, 1) 14%
+        );
+        background: linear-gradient(
+          256deg,
+          rgba(247, 151, 196, 1) 100%,
+          rgba(25, 118, 224, 1) 14%
+        );
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#F797C4", endColorstr="#1976E0", GradientType=0);
+        display: flex;
+        flex-direction: column;
+        margin-top: 12px;
+        gap: 12px;
+        padding: 12px;
+        height: 250px;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="row">
+      <div class="item">A</div>
+      <div class="item">B</div>
+      <div class="item">C</div>
+      <div class="item">D</div>
+    </div>
+
+    <div class="column">
+      <div class="item">A</div>
+      <div class="item">B</div>
+      <div class="item">C</div>
+      <div class="item">D</div>
+    </div>
+  </body>
+</html>

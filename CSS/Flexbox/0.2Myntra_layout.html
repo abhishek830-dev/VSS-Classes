@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Myntra Layout</title>
+    <style>
+         body {
+        margin: 0;
+      }
+      section {
+        background-color: rgb(235, 118, 118);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 12px;
+      }
+
+      section div {
+        background-color: rgb(133, 239, 12);
+        color: black;
+        flex: 30%;
+        border-radius: 12px;
+        height: 150px;
+        gap: 100px;
+        align-items: center;
+        /* justify-content: center; */
+        display: flex;
+      }
+       section div:nth-child(odd) {
+        background-color: rgb(203, 16, 216);
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        padding: 15px;
+        background-color: aqua;
+        height: 60px;
+        text-emphasis-color: black;
+      }
+
+      .header-nav1 {
+        display:flex;
+        gap: 20px;
+        font-weight: bold;
+        text-decoration: none;
+      }
+      .header-nav2 {
+        display: flex;
+        gap: 20px;
+        font-weight: lighter;
+
+      }
+    </style>
+</head>
+<body>
+    <header>
+      <span>Myntra Logo</span>
+      
+      <nav class="header-nav1">
+        <a href="#">MEN</a>
+        <a href="#">WOMEN</a>
+        <a href="#">KIDS</a>
+        <a href="#">HOME</a>
+        <a href="#">Beauty</a>
+        <a href="#">GENZ</a>
+        
+        <div class="search">
+          <input type="search" placeholder="search for products, brands and more">
+        </div>
+
+         <nav class="header-nav2">
+          <a href="#">PROFILE</a>
+          <a href="#">WISHLIST</a>
+          <a href="#">BAG</a>
+         </nav>
+        </nav>
+
+
+    
+    </header>
+    <section>
+        <div class="card"><img src="https://picsum.photos/200?1"></div>
+  <!-- <div class="card"><img src="https://picsum.</div> -->
+  <div class="card"><img src="https://picsum.photos/200?3"></div>
+  <div class="card"><img src="https://picsum.photos/200?4"></div>
+  <div class="card"><img src="https://picsum.photos/200?5"></div>
+  <div class="card"><img src="https://picsum.photos/200?6"></div>
+  <div class="card"><img src="https://picsum.photos/200?7"></div>
+  <div class="card"><img src="https://picsum.photos/200?8"></div>
+  <div class="card"><img src="https://picsum.photos/200?9"></div>
+  <div class="card"><img src="https://picsum.photos/200?10"></div>
+  <div class="card"><img src="https://picsum.photos/200?11"></div>
+  <div class="card"><img src="https://picsum.photos/200?12"></div>
+  <div class="card"><img src="https://picsum.photos/200?13"></div>
+  <div class="card"><img src="https://picsum.photos/200?14"></div>
+  <div class="card"><img src="https://picsum.photos/200?15"></div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,152 @@
+git: 'config--global--list' is not a git command. See 'git --help'.
+
+Ankit Jain
+10:49
+git config --global --list
+
+Rakshit Dalal
+10:49
+git config --global --list
+
+Ankit Jain
+10:50
+git config --global user.name "Your Name"
+git config --global user.email "youremail@example.com"
+
+Ankit Jain
+10:57
+git config --global user.name
+
+git config --global user.email
+
+Vidhya Skill School
+11:17
+git clone url
+
+Vidhya Skill School
+11:20
+git credential-manager-core erase
+git config --global --unset credential.helper
+
+Vidhya Skill School
+11:55
+mkdir name
+touch file.txt
+
+Priyanshi Awasthi
+12:00
+
+Task - Setup SSH using github with your local machine so that we can clone or work with a repo using SSH
+
+
+
+------------------------------------------------02/01/2026------------------------------------------------------------------------------
+
+
+
+
+
+https://docs.github.com/en/authentication/connecting-to-github-with-ssh/about-ssh
+
+Vidhya Skill School
+07:14
+https://github.com/xDAnkit/Gen-AI-Boilerplate
+
+Vidhya Skill School
+07:17
+https://github.com/xDAnkit/Gen-AI-Boilerplate
+
+Vidhya Skill School
+07:32
+https://github.com/priya42bagde/JavaScriptCodingInterviewQuestions.git
+
+Vidhya Skill School
+07:36
+echo "# nemo-ui" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/xDAnkit/nemo-ui.git
+git push -u origin main
+
+
+Vidhya Skill School
+07:47
+https://github.com/xDAnkit/nemo-ui.git
+
+Vidhya Skill School
+07:48
+git remote -v
+origin  https://github.com/xDAnkit/nemo-ui.git (fetch)
+origin  https://github.com/xDAnkit/nemo-ui.git (push)
+
+Vidhya Skill School
+07:50
+git push --set-upstream origin main
+git push -u origin main
+
+
+
+
+
+-------
+
+
+
+Shivani Vishwakarma
+07:22
+rb in 2 min
+
+Pinky Thawani
+07:37
+rb in 2 min
+
+vikas vanve
+07:50
+rb in 2min
+
+Vidhya Skill School
+07:51
+https://codeshare.io/2KL6d8
+
+Aviral Jain
+07:52
+Need to leave
+
+Kunal Khatri
+07:58
+rb in 2 min
+
+VICKY GUPTA
+08:08
+rb in 2 min
+
+Vidhya Skill School
+08:18
+https://codeshare.io/2BnOld
+padding : 6px 32px
+
+VICKY GUPTA
+08:22
+rb in 2 min
+
+Nilesh lohar
+08:25
+rb in 5 min
+
+Kunal Khatri
+08:26
+Need to Leave
+
+Ashitosh Vidhate
+08:29
+need to leave bhaiya
+C12 | Software Engineering | I'm an engineer
+
+
+https://codepen.io/yemon/pen/pWoROm
+
+https://codepen.io/ste-vg/pen/oKYjKV
+
+
