@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Share screen box</title>
+    <style>
+        body {
+            margin: 0px;
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    
+        .screenshare-container {
+            /* margin: 10px; */
+            background-color: rgba(0, 0, 0, 0.5);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        .screenshare-box {
+            /* margin: 50px; */
+            padding: 50px;
+            background-color: rgb(215, 219, 255);
+            width: 800px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+    
+        .header {
+            padding: 16px;
+            border-bottom: 1px solid #ddd;
+            /* border: 2px solid #1d1212; */
+            background-color: ghostwhite;
+        }
+    
+        .header h2 {
+            margin: 0 0 8px 0;
+        }
+    
+        .tabs {
+            margin-top: 10px;
+            display: flex;
+            border-bottom: 1px solid #ddd;
+        }
+    
+        .tabs div {
+            /* border: 2px solid black; */
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            cursor: pointer;
+            border-right: 1px solid #ddd;
+        }
+    
+        .tabs div:last-child {
+            border-right: none;
+        }
+    
+        .body-container {
+            display: flex;
+            flex: 1;
+        }
+    
+        .left-panel {
+            border: 2px solid black;
+            width: 50%;
+            border-right: 1px solid #ddd;
+            overflow-y: auto;
+        }
+    
+        .option-box {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            cursor: pointer;
+        }
+    
+        .right-panel {
+            border: 2px solid black;
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            color: #888;
+        }
+    
+        .audio-section {
+            border: 2px solid black;
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            /* border-top: 1px solid #ddd; */
+            gap: 8px;
+        }
+    
+        .footer {
+            display: flex;
+        }
+
+        .footer button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+
+  </head>
+  <body>
+    <div class="screenshare-container">
+      <div class="screenshare-box">
+        <div class="header">
+          <h2>Choose What to share with meet.google.com</h2>
+          <span>The site will be able to see the contents of your screen</span>
+        </div>
+        <div class="tabs">
+          <div class="ChromeTab">Chrome Tab</div>
+          <div class="Window">Window</div>
+          <div class="EntireScreen">Entire Screen</div>
+        </div>
+        <div class="body-container">
+          <div class="left-panel">
+            <div class="option-box">product hunt - Google Searsh</div>
+            <div class="option-box">(156) Whatsapp</div>
+            <div class="option-box">Mail-Ankit Jain - Professional Email</div>
+            <div class="option-box">Mail-Ankit Jain - Professional Email</div>
+            <div class="option-box">pay Runs | Preview | Zoho Payroll</div>
+            <div class="option-box">TypeScript Questions</div>
+            <div class="option-box">TypeScript Questions</div>
+            <div class="option-box">3.CSS - Google Searsh</div>
+          </div>
+          <div class="right-panel">
+            <span>Select a tab to share</span>
+          </div>
+          <div class="audio-section">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="Hdh4hc cIGbvc"><path d="M3 9v6h4l5 5V4L7 9zm13.5 3A4.5 4.5 0 0 0 14 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02M14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77"/><path fill="none" d="M0 0h24v24H0z"/></svg>
+            <span>Also share to tab audio</span>
+            <input type="checkbox" />
+          </div>
+        </div>
+        <div class="footer">
+          <button>Cancel</button>
+          <button>Share</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
