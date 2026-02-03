@@ -57,27 +57,8 @@
 
       .d-flex {
         display: flex;
-        gap: 10px;
+        gap: 12px;
         padding: 12px;
-      }
-
-      .list {
-        display: flex;
-        flex-direction: row;
-        gap: 10px;
-        width: 100%;
-      }
-
-      .list .item {
-        background-color: tomato;
-        color: white;
-        padding: 10px;
-        height: 200px;
-        min-width: 150px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex: 20%;
       }
 
       /* For tablets or medium-sized devices */
@@ -89,18 +70,6 @@
         .main-content {
           padding: 24px;
           font-size: 20px;
-        }
-
-        .list {
-          flex-direction: column;
-        }
-
-        .list .item {
-          width: 100%;
-          height: 100px;
-          flex: 1;
-          background-color: teal;
-          font-size: 28px;
         }
       }
 
@@ -136,19 +105,13 @@
           <li class="item">Home</li>
           <li class="item">About</li>
           <li class="item">Contact</li>
+          <li class="item">Services</li>
         </ul>
       </nav>
     </header>
     <section class="d-flex">
       <aside class="left-sidebar">Sidebar</aside>
-      <section class="main-content">
-        <div class="list">
-          <div class="item">Div Item</div>
-          <div class="item">Div Item</div>
-          <div class="item">Div Item</div>
-          <div class="item">Div Item</div>
-        </div>
-      </section>
+      <section class="main-content">Content</section>
     </section>
   </body>
 </html>
