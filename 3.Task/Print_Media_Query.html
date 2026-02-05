@@ -1,0 +1,125 @@
+<!-- Implement an invoice page using media queries to try print css -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Print_Media_Query</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            margin: 0px;
+            padding-bottom: 40px;
+        }
+        .invoice {
+            width: 800px;
+            background-color: #fff;
+            margin: auto;
+            padding: 35px;
+            text-align: center;
+
+        }
+        h1 {
+            margin-top: 0;
+            font-size: 40px;
+        }
+
+        .invoice-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            margin: 25px 0;
+            gap: 40px;
+        }
+
+        .invoice-info strong {
+            font-size: 17px;
+        }
+
+        table {
+            width: 50px;
+            margin-top: 20px;
+        }
+
+        td {
+            padding: 14px;
+        }
+
+        th {
+           background:#dcdcdc;
+f          text-align: center; 
+        }
+        button {
+            background-color: blue;
+            cursor: pointer;
+        }
+
+        .grand-total {
+            font-size: 22px;
+        }
+
+        @media print {
+            body {
+                background-color: white;
+                padding: 0px;
+            }
+
+            table {
+                width: 80%
+            }
+
+            th {
+                background-color: gray;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="invoice">
+        <h1>Invoice</h1>
+
+        <div class="invoice-info">
+            <div>
+                <strong>From:</strong><br>
+                My Company<br>
+                mycompany@gmail.com
+            <p>
+                <strong>Invoice #:</strong> 12345<br>
+                <strong>Date: </strong> 04 Feb 2026 
+            </p>
+
+        </div>
+
+        <table>
+            <tr>
+                <th>item</th>
+                <th>Qty</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+
+            <tr>
+                <td>Web Design</td>
+                <td>1</td>
+                <td>$500</td>
+                <td>$500</td>
+            </tr>
+            <tr>
+                <td>hosting</td>
+                <td>1</td>
+                <td>$100</td>
+                <td>$100</td>
+            </tr>
+            
+        </table>
+        
+        <p>Grand Toatal: $600</p> 
+        
+        <button>Print Invoice</button>
+        
+    </div>
+    </body>
+</html>
