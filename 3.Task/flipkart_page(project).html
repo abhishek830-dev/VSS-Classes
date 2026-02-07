@@ -1,0 +1,714 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flipkart Application</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        margin: 0;
+        font-family: lato, sans-serif;
+        background: #f1f3f6;
+      }
+
+      .main-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 24px;
+        background-color: white;
+        color: black;
+      }
+
+      .logo img {
+        height: 40px;
+      }
+
+      .search-box {
+        position: relative;
+        margin: 0 40px;
+        flex: 1;
+        max-width: 500px;
+      }
+
+      .search-box svg {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .search-box input {
+        width: 100%;
+        padding: 8px 12px;
+        border-radius: 7px;
+        border: none;
+        outline: none;
+        padding-left: 40px;
+        background-color: #ddffff;
+      }
+
+      .actions {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+      }
+
+      .nav-item {
+        cursor: pointer;
+        padding: 6px 14px;
+        border: none;
+        border-radius: 4px;
+        background: white;
+        color: black;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+      }
+
+      .cart {
+        cursor: pointer;
+        padding: 6px 14px;
+        border: none;
+        border-radius: 4px;
+        background: white;
+        color: black;
+      }
+
+      .three-dot {
+        position: relative;
+        cursor: pointer;
+      }
+
+      .dot-btn {
+        font-size: 22px;
+        font-weight: lighter;
+      }
+
+      .dot-menu {
+        position: absolute;
+        top: 30px;
+        right: 0;
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        min-width: 140px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        display: none;
+        z-index: 10;
+      }
+
+      .dot-menu a {
+        display: block;
+        padding: 8px 12px;
+        text-decoration: none;
+        color: #333;
+        font-size: 14px;
+      }
+
+      .dot-menu a:hover {
+        background: #f2f2f2;
+      }
+
+      /* Hover par open */
+      .three-dot:hover .dot-menu {
+        display: block;
+      }
+
+      .secondary-container {
+        margin: 10px 51px;
+        overflow: hidden;
+        background: #fff;
+        border-bottom: 1px solid #e0e0e0;
+        padding: 0 161px;
+      }
+
+      ul.action-menus {
+        display: flex;
+        list-style-type: none;
+        padding: 12px;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      ul.action-menus li {
+        /* padding: 12px; */
+        min-width: max-content;
+        flex: 0 0 auto;
+
+        /* background-color: tomato; */
+      }
+
+      ul.action-menus li a {
+        display: flex;
+        text-decoration: none;
+        color: black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        font-size: small;
+        /* font-weight: bold; */
+      }
+      .action-menu-item img {
+        width: 64px;
+        height: 64px;
+        object-fit: contain;
+      }
+
+      .top-deal {
+        margin: 16px 40px;
+        overflow: hidden;
+        background: #fff;
+        border-bottom: 1px solid #e0e0e0;
+        padding: 0 24px;
+      }
+
+      .top-deal .action-menu-item img {
+        width: 180px;
+        height: 110px;
+      }
+      .top-deal .action-menu li a span {
+        font-size: xx-large;
+      }
+      .top-deal .action-menu-item p {
+        font-weight: bold;
+      }
+
+      .top-deal h1 {
+        font-size: 30px;
+        font-weight: bold;
+      }
+
+      .banner-container {
+        max-width: 1380px;
+        margin: 20px auto;
+      }
+
+      .slider {
+        width: 100%;
+        height: 260px;
+        overflow: hidden;
+        border-radius: 8px;
+        background-color: #ddd;
+      }
+
+      .slides {
+        display: flex;
+        height: 100%;
+        animation: slide 18s infinite;
+      }
+
+      .slides img {
+        flex: 0 0 100%;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .box {
+        display: grid;
+        gap: 25px;
+        grid-template-columns: repeat(4, 1fr);
+        /* padding: 20px; */
+      }
+
+      /* Tablet */
+      @media (max-width: 1024px) {
+        .box {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      /* Mobile */
+      @media (max-width: 600px) {
+        .box {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .item {
+        /* width: 24%; */
+        display: flex;
+        background-color: thistle;
+        align-items: center;
+        justify-content: center;
+        /* height: 600px; */
+      }
+
+      .item img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      @media screen and (min-width: 481px) and (max-width: 768px) {
+        .item {
+          width: 49%;
+        }
+      }
+
+      @media screen and (max-width: 480px) {
+        .item {
+          width: 100%;
+        }
+      }
+
+      /* 6 images -> translateX in steps of 100% */
+      @keyframes slide {
+        0% {
+          transform: translateX(0);
+        }
+
+        15% {
+          transform: translateX(0);
+        }
+
+        20% {
+          transform: translateX(-100%);
+        }
+
+        35% {
+          transform: translateX(-100%);
+        }
+
+        40% {
+          transform: translateX(-200%);
+        }
+
+        55% {
+          transform: translateX(-200%);
+        }
+
+        60% {
+          transform: translateX(-300%);
+        }
+
+        75% {
+          transform: translateX(-300%);
+        }
+
+        80% {
+          transform: translateX(-400%);
+        }
+
+        95% {
+          transform: translateX(-400%);
+        }
+
+        100% {
+          transform: translateX(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="main-header">
+        <div class="logo">
+          <img
+            src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/fkheaderlogo_exploreplus-11f9e2.svg"
+          />
+        </div>
+
+        <div class="search-box">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+          >
+            <path
+              stroke="#717478"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.4"
+              d="M10.5 18a7.5 7.5 0 1 0 0-15 7.5 7.5 0 0 0 0 15M16 16l5 5"
+            />
+          </svg>
+          <input
+            type="text"
+            placeholder="Search for products, brands and more"
+          />
+        </div>
+
+        <div class="actions">
+          <a href="/login" class="nav-item">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="none"
+            >
+              <g
+                stroke="#000"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.4"
+                clip-path="url(#a)"
+              >
+                <path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18" />
+                <path d="M12 15a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 0 0 0 7.5" />
+                <path d="M5.98 18.69a6.75 6.75 0 0 1 12.038 0" />
+              </g>
+              <defs>
+                <clipPath id="a">
+                  <path fill="#fff" d="M0 0h24v24H0z" />
+                </clipPath>
+              </defs>
+            </svg>
+
+            Login
+          </a>
+
+          <a href="/cart" class="nav-item">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="none"
+            >
+              <path
+                stroke="#111112"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.4"
+                d="M17.25 17.25H6.545L3.93 2.866a.75.75 0 0 0-.738-.616H1.5M7.5 21a1.875 1.875 0 1 0 0-3.75 1.875 1.875 0 0 0 0 3.75M17.25 21a1.875 1.875 0 1 0 0-3.75 1.875 1.875 0 0 0 0 3.75"
+              />
+              <path
+                stroke="#111112"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.4"
+                d="M5.864 13.5h11.77a1.5 1.5 0 0 0 1.476-1.232L20.25 6H4.5"
+              />
+            </svg>
+            Cart
+          </a>
+          <a href="/seller" class="nav-item">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="none"
+            >
+              <path
+                stroke="#212121"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.4"
+                d="M4.5 13.055v6.218c0 .193.079.378.22.514.14.137.33.213.53.213h13.5c.199 0 .39-.076.53-.213a.72.72 0 0 0 .22-.514v-6.218M5.063 4h13.875c.162.001.32.053.45.148s.225.228.271.38L21 9.09H3l1.34-4.564a.74.74 0 0 1 .272-.379.78.78 0 0 1 .45-.148"
+              />
+              <path
+                stroke="#212121"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.4"
+                d="M9 9.09v1.455c0 .772-.316 1.512-.879 2.057A3.05 3.05 0 0 1 6 13.454a3.05 3.05 0 0 1-2.121-.852A2.87 2.87 0 0 1 3 10.545V9.091"
+              />
+              <path
+                stroke="#212121"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.4"
+                d="M15 9.09v1.455c0 .772-.316 1.512-.879 2.057a3.05 3.05 0 0 1-2.121.852 3.05 3.05 0 0 1-2.121-.852 2.87 2.87 0 0 1-.88-2.057V9.091"
+              />
+              <path
+                stroke="#212121"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.4"
+                d="M21 9.09v1.455c0 .772-.316 1.512-.879 2.057a3.05 3.05 0 0 1-2.121.852 3.05 3.05 0 0 1-2.121-.852 2.87 2.87 0 0 1-.88-2.057V9.091"
+              />
+            </svg>
+
+            Become a Seller
+          </a>
+          <div class="three-dot">
+            <span class="dot-btn">⋮</span>
+            <div class="dot-menu">
+              <a href="">Notifications Preferences</a>
+              <a href="">24x7 Customer Care</a>
+              <a href="">Advertise</a>
+              <a href="">Download App</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="secondary-container">
+        <ul class="action-menus">
+          <li>
+            <a href="https://www.flipkart.com">
+              <div class="action-menu-item">
+                <img
+                  src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/e00302d428f5c7be.png?q=100"
+                />
+              </div>
+              <span>Minutes</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.flipkart.com">
+              <div class="action-menu-item">
+                <img
+                  src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/5f2ee7f883cdb774.png?q=100"
+                />
+              </div>
+              <span>Mobile & Tablets</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.flipkart.com">
+              <div class="action-menu-item">
+                <img
+                  src="https://rukminim1.flixcart.com/fk-p-flap/64/64/image/ff559cb9d803d424.png?q=100"
+                />
+              </div>
+              <span>Fashion</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.flipkart.com">
+              <div class="action-menu-item">
+                <img
+                  src="https://rukminim1.flixcart.com/fk-p-flap/64/64/image/af646c36d74c4be9.png?q=100"
+                />
+              </div>
+              <span>Electronics</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.flipkart.com">
+              <div class="action-menu-item">
+                <img
+                  src="https://rukminim1.flixcart.com/fk-p-flap/64/64/image/e90944802d996756.jpg?q=100"
+                />
+              </div>
+              <span>TVs & Appliances</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.flipkart.com">
+              <div class="action-menu-item">
+                <img
+                  src="https://rukminim1.flixcart.com/fk-p-flap/64/64/image/1788f177649e6991.png?q=100"
+                />
+              </div>
+              <span>Home & Furniture</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.flipkart.com">
+              <div class="action-menu-item">
+                <img
+                  src="https://rukminim1.flixcart.com/fk-p-flap/64/64/image/3c647c2e0d937dc5.png?q=100"
+                />
+              </div>
+              <span>Flight Bookings</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.flipkart.com">
+              <div class="action-menu-item">
+                <img
+                  src="https://rukminim1.flixcart.com/fk-p-flap/64/64/image/b3020c99672953b9.png?q=100"
+                />
+              </div>
+              <span>Beauty, Food & Personal Care</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.flipkart.com">
+              <div class="action-menu-item">
+                <img
+                  src="https://rukminim1.flixcart.com/fk-p-flap/64/64/image/e730a834ad950bae.png?q=100"
+                />
+              </div>
+              <span>Grocery</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <section class="banner-container">
+      <div class="slider">
+        <div class="slides">
+          <img
+            src="https://rukminim1.flixcart.com/fk-p-flap/3240/540/image/affd2e30c895a095.jpg?q=60"
+          />
+          <img
+            src="https://rukminim1.flixcart.com/fk-p-flap/3240/540/image/34376a8fd17ae79c.jpg?q=60"
+          />
+          <img
+            src="https://rukminim1.flixcart.com/fk-p-flap/3240/540/image/949f9327aacd1795.jpg?q=60"
+          />
+          <img
+            src="https://rukminim1.flixcart.com/fk-p-flap/3240/540/image/9e48bbeaa5a01f0d.jpg?q=60"
+          />
+          <img
+            src="	https://rukminim1.flixcart.com/fk-p-flap/3240/540/image/1f9c9ad24c2bc37b.jpg?q=60"
+          />
+          <img
+            src="https://rukminim1.flixcart.com/fk-p-flap/3240/540/image/94794a73bd6c8798.png?q=60"
+          />
+        </div>
+      </div>
+    </section>
+
+    <div class="top-deal">
+      <h1>Top Deals</h1>
+      <ul class="action-menus">
+        <li>
+          <a href="https://www.flipkart.com">
+            <div class="action-menu-item">
+              <img
+                src="https://rukminim1.flixcart.com/image/340/340/xif0q/projector/9/u/x/atom-3x-native-fhd-1080p-4k-support-13-0-android-projector-300-original-imahgxv3fubwqk34.jpeg?q=60"
+              />
+            </div>
+            <span>Projector</span>
+            <p>From $6990</p>
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.flipkart.com">
+            <div class="action-menu-item">
+              <img
+                src="https://rukminim1.flixcart.com/image/340/340/kcf4lu80/speaker/mobile-tablet-speaker/h/u/f/srs-xb23-sony-original-imaftk66vjxp86h5.jpeg?q=60"
+              />
+            </div>
+            <span>Best Selling Mobile Speaker</span>
+            <p><strong>From $499</strong></p>
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.flipkart.com">
+            <div class="action-menu-item">
+              <img
+                src="https://rukminim1.flixcart.com/image/340/340/xif0q/monitor/i/q/k/-original-imahbzhcdvc6gkhu.jpeg?q=60"
+              />
+            </div>
+            <span>monitors</span>
+            <p><strong>From $6599</strong></p>
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.flipkart.com">
+            <div class="action-menu-item">
+              <img
+                src="https://rukminim1.flixcart.com/image/340/340/xif0q/monitor/j/s/y/-original-imahgdyffnjne9vv.jpeg?q=60"
+              />
+            </div>
+            <span>Monitor</span>
+            <p><strong>From $8279</strong></p>
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.flipkart.com">
+            <div class="action-menu-item">
+              <img
+                src="https://rukminim1.flixcart.com/image/340/340/xif0q/dslr-camera/n/p/t/eos-r50-24-2-r50-canon-original-imagngc7syac8pfd.jpeg?q=60"
+              />
+            </div>
+            <span>Top Mirrorless Camera</span>
+            <p><strong>Shop now!</strong></p>
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.flipkart.com">
+            <div class="action-menu-item">
+              <img
+                src="https://rukminim1.flixcart.com/image/340/340/xif0q/smartwatch/5/v/s/-original-imagxrhetgfuebnn.jpeg?q=60"
+              />
+            </div>
+            <span>Fastrack SmartWatch</span>
+            <p><strong>From $1,399</strong></p>
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.flipkart.com">
+            <div class="action-menu-item">
+              <img
+                src="https://rukminim1.flixcart.com/image/340/340/l58iaa80/headphone/k/z/m/nord-buds-ce-oneplus-original-imagfyk4hyvgg6ze.jpeg?q=60"
+              />
+            </div>
+            <span>Best Truewireless Headphones</span>
+            <p><strong>Grab Now!</strong></p>
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.flipkart.com">
+            <div class="action-menu-item">
+              <img
+                src="http://rukminim1.flixcart.com/image/340/340/xif0q/printer/0/l/1/-original-imags2yrq3eeetyz.jpeg?q=60"
+              />
+            </div>
+            <span>Printers</span>
+            <p><strong>From $2336</strong></p>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- // Product-images -->
+    <div class="box">
+      <div class="item">
+        <img
+          src="https://rukminim2.flixcart.com/image/612/612/xif0q/shirt/n/x/c/xl-met-shirt1408-metronaut-original-imahgrb99ffhkdyg.jpeg?q=70"
+          alt="Product-image"
+        />
+      </div>
+
+      <div class="item">
+        <img
+          src="https://rukminim2.flixcart.com/image/612/612/xif0q/shirt/k/k/e/s-mdps-bottlegreen1-metronaut-original-imahggftshfmpnds.jpeg?q=70"
+        />
+      </div>
+      <div class="item">
+        <img
+          src="https://rukminim2.flixcart.com/image/612/612/xif0q/shirt/h/b/v/xxl-codline-01-praizy-original-imahfd6hbc3dfvsr.jpeg?q=70"
+        />
+      </div>
+      <div class="item">
+        <img
+          src="https://rukminim2.flixcart.com/image/612/612/xif0q/shirt/r/r/b/m-m-lafarcheck-101-metronaut-original-imahd79edyhfngw3.jpeg?q=70"
+        />
+      </div>
+      <div class="item">
+        <img
+          src="https://rukminim2.flixcart.com/image/612/612/xif0q/shirt/t/4/e/xl-cx-sr320-metronaut-original-imahhhhcqcqrzvf7.jpeg?q=70"
+        />
+      </div>
+      <div class="item">
+        <img
+          src="https://rukminim2.flixcart.com/image/612/612/xif0q/shirt/y/a/p/m-met-khidki-print-blue-metronaut-original-imahjv4mt8cqgkpb.jpeg?q=70"
+        />
+      </div>
+    </div>
+  </body>
+</html>
+
