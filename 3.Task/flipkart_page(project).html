@@ -308,6 +308,92 @@
           transform: translateX(0);
         }
       }
+
+      .main-container {
+        display: flex;
+        gap: 20px;
+        padding: 20px;
+      }
+
+      .deal-container {
+        background-color: #fff;
+        padding: 15px;
+        flex: 1;
+      }
+
+      .main-container .banner-container {
+        width: 400px;
+        background-color: #fff;
+      }
+
+      .main-container .banner-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+
+      .card {
+        border: 1px solid red;
+        padding: 10px;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      .card img {
+        width: 100%;
+        height: 200px;
+        object-fit: contain;
+      }
+
+      .description-box {
+        margin: 20px;
+      }
+
+
+
+
+
+      /* footer */
+
+      .footer {
+        background-color: #172337;
+        color: #fff;
+        margin-top: 40px;
+        padding: 10px;
+      }
+
+      .footer-top {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 40px;
+        padding: 40px 60px;
+      }
+
+      .footer-column h4 {
+        font-size: 14px;
+        color: #878787;
+        margin-bottom: 10px;
+      }
+
+      .footer-column a {
+        display: block;
+        color: #fff;
+        font-size: 12px;
+        margin-bottom: 12px;
+        font-weight: bold;
+        font-family: sans-serif;
+      }
+
+
+
+
+
     </style>
   </head>
   <body>
@@ -575,6 +661,7 @@
 
     <div class="top-deal">
       <h1>Top Deals</h1>
+
       <ul class="action-menus">
         <li>
           <a href="https://www.flipkart.com">
@@ -674,6 +761,91 @@
       </ul>
     </div>
 
+    <div class="main-container">
+      <div class="deal-container">
+        <h2>Fashion's Top Deals</h2>
+
+        <div class="card-grid">
+          <div class="card">
+            <img
+              src="https://rukminim1.flixcart.com/image/420/420/xif0q/shoe/a/5/u/-original-imahesyawgzggu6e.jpeg?q=60"
+            />
+            <p>Men's Casual Shoes</p>
+            <span>Min. 70% Off</span>
+          </div>
+
+          <div class="card">
+            <img
+              src="https://rukminim1.flixcart.com/image/360/360/xif0q/slipper-flip-flop/h/i/q/-original-imahg2tdkzwubydj.jpeg?q=60"
+            />
+            <p>Wrist Watches</p>
+            <span>Min. 90% Off</span>
+          </div>
+
+          <div class="card">
+            <img
+              src="https://rukminim1.flixcart.com/image/360/360/xif0q/watch/i/l/q/1-1221-rls-boys-girls-original-imahkbwukhv9ujgu.jpeg?q=60"
+            />
+            <p>Wrist Watches</p>
+            <span>Min. 90% Off</span>
+          </div>
+
+          <div class="card">
+            <img
+              src="https://rukminim2.flixcart.com/image/612/612/xif0q/watch/o/9/q/designers-lord-mahadev-dial-and-with-leathers-bracelet-combo-original-imah2x5ds7vkgza3.jpeg?q=70"
+            />
+            <p>Wrist Watches</p>
+            <span>Min. 90% Off</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="deal-container">
+        <h2>Make your home stylish</h2>
+
+        <div class="card-grid">
+          <div class="card">
+            <img
+              src="http://rukminim1.flixcart.com/image/420/420/xif0q/mat/i/z/f/large-2-piece-kitchen-mat-2-cooking-time-2-piece-rubber-mat-original-imahg2wmujcfh7un.jpeg?q=60"
+            />
+            <p>Wrist Watches</p>
+            <span>Min. 90% Off</span>
+          </div>
+
+          <div class="card">
+            <img
+              src="https://rukminim1.flixcart.com/image/420/420/xif0q/shopsy-bedsheet/l/y/c/plain-1-9167-rivek-decor-original-imahh9qkxxgvkhux.jpeg?q=60"
+            />
+            <p>Wrist Watches</p>
+            <span>Min. 90% Off</span>
+          </div>
+
+          <div class="card">
+            <img
+              src="https://rukminim1.flixcart.com/image/420/420/xif0q/curtain/x/d/c/ac-curtain-1-210-door-ghdrtmsc001-ring-rod-goel-home-decor-original-imah8zwxvxpeevhp.jpeg?q=60"
+            />
+            <p>Wrist Watches</p>
+            <span>Min. 90% Off</span>
+          </div>
+
+          <div class="card">
+            <img
+              src="https://rukminim1.flixcart.com/image/420/420/xif0q/roti-cover/n/m/u/200-fabric-caseroll-roti-cloth-grey-check-pack-1-1-aarnikawrap-original-imahk6y6gwsnnhdd.jpeg?q=60"
+            />
+            <p>Wrist Watches</p>
+            <span>Min. 90% Off</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="banner-container">
+        <img
+          src="https://rukminim1.flixcart.com/www/1060/1500/promos/26/09/2023/6c3c5fe2-c236-4fa2-8d97-595e1e01da01.jpg?q=60"
+          alt=""
+        />
+      </div>
+    </div>
+
     <!-- // Product-images -->
     <div class="box">
       <div class="item">
@@ -709,6 +881,90 @@
         />
       </div>
     </div>
+    <div class="description-box">
+      <h3>Top stories : Brand Directory</h3>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde natus magnam
+      rerum iure harum voluptate delectus obcaecati nam aspernatur? Voluptates,
+      itaque doloremque quisquam error quis odit in doloribus provident
+      quibusdam. Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+      Molestias aliquid sit eaque magni optio natus cum minus hic eveniet
+      distinctio sint eligendi, necessitatibus error eius, harum fugit.
+      Doloremque, exercitationem officiis. Lorem ipsum dolor sit amet
+      consectetur adipisicing elit. Animi et dolores, deserunt quaerat iste
+      pariatur vero. Maxime, ab maiores libero, excepturi nam magnam dolore sint
+      mollitia expedita, a sed nihil. <br /><br />
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora officia
+      officiis inventore totam quam mollitia quas voluptas quae blanditiis odit
+      repellat ipsa possimus illo, autem repellendus modi saepe iste animi.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi dolores
+      quidem eos consequuntur! Odio explicabo error aut nisi reiciendis dolorem
+      rem? Quia doloremque minus dignissimos beatae maiores. Libero, eligendi
+      ratione! <br /><br />
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita,
+      dolorum? Suscipit repellendus perspiciatis, expedita necessitatibus ex
+      quibusdam saepe cupiditate reprehenderit nostrum ut recusandae praesentium
+      minima. Nisi corporis similique voluptatibus error. Lorem ipsum, dolor sit
+      amet consectetur adipisicing elit. Vitae nisi sapiente ipsa minima eaque
+      similique omnis aut dolore totam dolores consequatur, esse sequi
+      laboriosam sint autem? Explicabo enim dolores ab.
+    </div>
+
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="footer-column">
+          <h4>ABOUT</h4>
+          <a href="#">Contact us</a>
+          <a href="#">About Us</a>
+          <a href="#">Careers</a>
+          <a href="#">Flipkart stories</a>
+          <a href="#">Press</a>
+          <a href="#">Corporate information</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>GROUP COMPANIES</h4>
+          <a href="#">myntra</a>
+          <a href="#">Cleantrip</a>
+          <a href="#">Shopsy</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>HELP</h4>
+          <a href="#">Payment</a>
+          <a href="#">Shipping</a>
+          <a href="#">Cancellation & Returns</a>
+          <a href="#">FAQ</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>CONSUMER POLICY</h4>
+            <a href="#">CANCELLATION & Returns</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">Security</a>
+            <a href="#">Sitemap</a>
+            <a href="#">Grievance Redressal</a>
+            <a href="#">ERP Compliance</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>SOCIAL</h4>
+          <a href="#">Facebook</a>
+          <a href="#">Twitter</a>
+          <a href="#">YouTube</a>
+        </div>
+
+        <div class="footer-column address">
+          <h4>Mail Us:</h4>
+          <p>
+            Flipkart Internet Pvt Ltd,<br />
+            Buildings Alyssa, Begonia &<br />
+            Clove Embassy Tech Village,<br />
+            Bengaluru, 560103
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">© 2026 Flipkart Clone | Made with ❤️</div>
+    </footer>
   </body>
 </html>
-
