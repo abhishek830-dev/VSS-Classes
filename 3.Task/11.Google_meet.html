@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Google Meet View People</title>
+  </head>
+
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .First-Container {
+      width: 300px;
+      background-color: black;
+      margin: 10px;
+      padding: 15px;
+      color: white;
+      border-radius: 10px;
+    }
+
+    .Second-Container {
+      background-color: rgb(33, 31, 31);
+      border-radius: 20px;
+      padding: 10px;
+      margin: 10px;
+    }
+
+    .header {
+      display: flex;
+      background-color: rgb(33, 31, 31);
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header button {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    .controls {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .controls button {
+      justify-content: space-between;
+      border-radius: 10px;
+      align-items: center;
+      background-color: rgb(71, 71, 223);
+      color: white;
+      border: none;
+      flex: 1;
+      padding: 8px 10px;
+      margin: 0 4px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .controls button:hover {
+      background-color: #455265;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .h3 {
+      margin: 0;
+    }
+
+    .participant {
+    padding: 5px 0;
+    border-bottom: 1px solid #444;
+    }
+
+    .search {
+      display: flex;
+      border:1px solid red;
+    }
+
+    .search input {
+    width: 100%;       /* full width */
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    }
+
+    
+  </style>
+
+  <body>
+    <div class="First-Container">
+      <div class="Second-Container">
+        <div class="header">
+          <h3>People</h3>
+          <button>X</button>
+        </div>
+
+        <div class="controls">
+          <button>All muted</button>
+          <button>Add people</button>
+        </div>
+
+        <div class="search">
+          <input type="text" id="searchBox" placeholder="Search for people" />
+        </div>
+
+        <section>
+          <p>IN THE MEETING</p>
+        </section>
+
+        <div class="Third-Container">
+          <div class="contributors">
+            <span>contributors</span>
+            <span id="count">0</span>
+          </div>
+
+          <div class="participants" id="results">
+            <!-- JS se populate hoga -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const names = [
+        "Vidhya Skill School",
+        "Abhishek Garg",
+        "Almas Chamadiya",
+        "ANKIT RAJPUT",
+        "Ashitosh Vidhate",
+        "Aviral Jain",
+        "Ayush Gupta",
+        "Deepanshu Garg",
+        "Pinky Thawani",
+        "Prakash",
+        "Pranav Khare",
+        "Rakshit Dalal",
+        "Shivani Vishwakarma",
+        "Shruti Prajapati",
+        "vikas vanve",
+      ];
+
+      const searchBox = document.getElementById("searchBox");
+      const results = document.getElementById("results");
+
+      show(names);
+
+      searchBox.addEventListener("input", () => {
+        const value = searchBox.value.toLowerCase();
+
+        const filtered = names.filter(
+          (name) => name.toLowerCase().search(value) !== -1,
+        );
+
+        show(filtered);
+      });
+
+      function show(namesList) {
+        results.innerHTML = "";
+
+        document.getElementById("count").textContent = namesList.length;
+
+        namesList.forEach((name) => {
+          const div = document.createElement("div");
+          div.className = "participant";
+          div.innerHTML = `<span>${name}</span>`;
+          results.appendChild(div);
+        });
+      }
+    </script>
+  </body>
+</html>
