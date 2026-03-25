@@ -8,27 +8,32 @@
 
   <style>
     body {
-      display: flex;
+      /* display: flex; */
       justify-content: center;
       align-items: center;
       height: 100vh;
       margin: 0;
+      background-color: rgb(28, 28, 28);
     }
 
     .First-Container {
       width: 300px;
       background-color: black;
       margin: 10px;
-      padding: 15px;
+      padding: 10px;
       color: white;
       border-radius: 10px;
+      overflow-y: scroll;
+      scrollbar-width: none;
     }
 
     .Second-Container {
-      background-color: rgb(33, 31, 31);
+      background-color: rgb(33 33 33 / 91%);
       border-radius: 20px;
       padding: 10px;
       margin: 10px;
+      overflow-y: scroll;
+      scrollbar-width: none;
     }
 
     .header {
@@ -48,19 +53,21 @@
 
     .controls {
       display: flex;
-      gap: 8px;
-      margin-bottom: 10px;
+      gap: 10px;
+      margin: 10px 0;
     }
 
     .controls button {
-      justify-content: space-between;
-      border-radius: 10px;
+      display: flex;
       align-items: center;
-      background-color: rgb(71, 71, 223);
+      gap: 6px;
+      border-radius: 20px;
+      align-items: center;
+      background-color: #16466a;
       color: white;
       border: none;
       flex: 1;
-      padding: 8px 10px;
+      padding: 9px 10px;
       margin: 0 4px;
       cursor: pointer;
       transition: all 0.2s;
@@ -79,24 +86,128 @@
     }
 
     .participant {
-    padding: 5px 0;
-    border-bottom: 1px solid #444;
+      display: flex;
+      align-items: center;
+      padding: 10px 5px;
+      gap: 10px;
+      border-bottom: 1px solid #444;
+    }
+
+    .participant-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 14px;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .participant-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .participant-name {
+      font-size: 14px;
+      color: white;
+    }
+
+    .participant-label {
+      font-size: 12px;
+      color: #aaa;
+    }
+
+    .participant-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .participant-actions svg {
+      cursor: pointer;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+    }
+
+    .participant-actions svg:hover {
+      opacity: 1;
+    }
+
+    .collapse-arrow {
+      cursor: pointer;
+      font-size: 16px;
     }
 
     .search {
+      width: 100%;
+      margin: 10px 0;
       display: flex;
-      border:1px solid red;
+      align-items: center;
+      background-color: #2a2a2a;
+      padding: 5px 10px;
+      border-radius: 10px;
+      border: 1px solid white;
     }
 
     .search input {
-    width: 100%;       /* full width */
-    padding: 8px;
-    border-radius: 5px;
-    border: none;
-    outline: none;
+      width: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: white;
+      margin-left: 8px;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 0;
+      font-size: 16px;
     }
 
-    
+    .search input::placeholder {
+      color: #aaa;
+    }
+
+    .icon {
+      display: flex;
+      align-items: center;
+    }
+
+    section p {
+      font-size: 9px;
+      color: #aaa; /* light grey */
+      margin: 30px 30px 0 5px; /* top-bottom spacing */
+      letter-spacing: 1px; /* थोड़ा spacing letters में */
+    }
+
+    .Third-Container {
+      min-height: 300px;
+      padding: 10px 0;
+      border: 1px solid white;
+      border-radius: 10px;
+      padding: 10px;
+      margin: 20px 0;
+    }
+
+    .participants {
+      min-height: 250px;
+      border: 1px solid white;
+      border-radius: 10px;
+    }
+
+    .contributors {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 0;
+      padding: 10px 5px;
+      border-bottom: 1px solid #444;
+      font-weight: bold;
+    }
   </style>
 
   <body>
@@ -108,11 +219,36 @@
         </div>
 
         <div class="controls">
-          <button>All muted</button>
-          <button>Add people</button>
+          <button>
+            <!-- Mute Icon -->
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
+              <path
+                d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zM19 12c0 2.5-1.5 4.68-3.66 5.74l1.42 1.42C19.24 17.9 21 15.15 21 12h-2zM4.27 3L3 4.27l5 5V12c0 1.38.56 2.63 1.46 3.54l-1.27 1.27C6.9 15.73 6 13.98 6 12H4c0 2.67 1.28 5.03 3.25 6.5L3 22l1.27 1.27 18-18L20.73 3 4.27 3z"
+              />
+            </svg>
+            All muted
+          </button>
+
+          <button>
+            <!-- Add People Icon -->
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
+              <path
+                d="M15 12c2.21 0 4-1.79 4-4S17.21 4 15 4s-4 1.79-4 4 1.79 4 4 4zM6 10V7H4v3H1v2h3v3h2v-3h3v-2H6zm9 4c-2.67 0-8 1.34-8 4v2h10v-2c0-.73.19-1.41.52-2H15z"
+              />
+            </svg>
+            Add people
+          </button>
         </div>
 
         <div class="search">
+          <span class="icon">
+            <!-- SVG -->
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
+              <path
+                d="M10 2a8 8 0 105.293 14.293l4.707 4.707 1.414-1.414-4.707-4.707A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z"
+              />
+            </svg>
+          </span>
           <input type="text" id="searchBox" placeholder="Search for people" />
         </div>
 
@@ -122,8 +258,11 @@
 
         <div class="Third-Container">
           <div class="contributors">
-            <span>contributors</span>
-            <span id="count">0</span>
+            <span>Contributors</span>
+            <div style="display: flex; gap: 10px; align-items: center;">
+              <span id="count">0</span>
+              <span class="collapse-arrow">▲</span>
+            </div>
           </div>
 
           <div class="participants" id="results">
@@ -135,7 +274,7 @@
 
     <script>
       const names = [
-        "Vidhya Skill School",
+        "Vidhya Skill School(You)",
         "Abhishek Garg",
         "Almas Chamadiya",
         "ANKIT RAJPUT",
@@ -167,15 +306,70 @@
         show(filtered);
       });
 
+      const colors = [
+        "#E91E63", "#2196F3", "#4CAF50", "#FF9800", "#9C27B0",
+        "#00BCD4", "#FFC107", "#F44336", "#673AB7", "#3F51B5",
+        "#009688", "#795548", "#607D8B", "#E0E0E0", "#FF5722"
+      ];
+
+      function getInitials(name) {
+        return name.split(" ").map(n => n[0]).join("").toUpperCase().substring(0, 1);
+      }
+
       function show(namesList) {
         results.innerHTML = "";
-
         document.getElementById("count").textContent = namesList.length;
 
-        namesList.forEach((name) => {
+        namesList.forEach((name, index) => {
+          const isHost = name.includes("(You)");
+          const cleanName = name.replace("(You)", "").trim();
+          
           const div = document.createElement("div");
           div.className = "participant";
-          div.innerHTML = `<span>${name}</span>`;
+
+          const avatar = document.createElement("div");
+          avatar.className = "participant-avatar";
+          avatar.style.backgroundColor = colors[index % colors.length];
+          avatar.textContent = getInitials(cleanName);
+
+          const info = document.createElement("div");
+          info.className = "participant-info";
+
+          const nameSpan = document.createElement("span");
+          nameSpan.className = "participant-name";
+          nameSpan.textContent = cleanName;
+          info.appendChild(nameSpan);
+
+          if (isHost) {
+            const label = document.createElement("span");
+            label.className = "participant-label";
+            label.textContent = "Meeting host";
+            info.appendChild(label);
+          }
+
+          const actions = document.createElement("div");
+          actions.className = "participant-actions";
+
+          const muteIcon = document.createElement("svg");
+          muteIcon.setAttribute("width", "18");
+          muteIcon.setAttribute("height", "18");
+          muteIcon.setAttribute("viewBox", "0 0 24 24");
+          muteIcon.setAttribute("fill", "white");
+          muteIcon.innerHTML = `<path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zM19 12c0 2.5-1.5 4.68-3.66 5.74l1.42 1.42C19.24 17.9 21 15.15 21 12h-2zM4.27 3L3 4.27l5 5V12c0 1.38.56 2.63 1.46 3.54l-1.27 1.27C6.9 15.73 6 13.98 6 12H4c0 2.67 1.28 5.03 3.25 6.5L3 22l1.27 1.27 18-18L20.73 3 4.27 3z"/>`;
+
+          const menuIcon = document.createElement("svg");
+          menuIcon.setAttribute("width", "18");
+          menuIcon.setAttribute("height", "18");
+          menuIcon.setAttribute("viewBox", "0 0 24 24");
+          menuIcon.setAttribute("fill", "white");
+          menuIcon.innerHTML = `<path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>`;
+
+          actions.appendChild(muteIcon);
+          actions.appendChild(menuIcon);
+
+          div.appendChild(avatar);
+          div.appendChild(info);
+          div.appendChild(actions);
           results.appendChild(div);
         });
       }
