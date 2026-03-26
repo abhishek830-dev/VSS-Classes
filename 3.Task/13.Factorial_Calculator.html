@@ -7,56 +7,68 @@
   </head>
   <style>
     body {
-        display: flex;
-        background-color: rgb(45, 52, 186);
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-
+      display: flex;
+      background-color: rgb(45, 52, 186);
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
     .container {
-        background-color: white;
-        justify-content: center;
-        align-items: center;
-        width: 400px;
-        margin: 10px;
-        height: 50vh;
-        border-radius: 10px;    
-        display: flex;
-        flex-direction: column;
-        gap: 10px;    
+      background-color: white;
+      justify-content: center;
+      align-items: center;
+      width: 400px;
+      margin: 10px;
+      height: 50vh;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
 
-    input, button {
-        width: 300px;
-        padding: 10px;
-        margin-top: 10px;
-        box-sizing: border-box;
-        border: 1px solid grey;
-        border-radius: 5px;
+    input,
+    button {
+      width: 300px;
+      padding: 10px;
+      margin-top: 10px;
+      box-sizing: border-box;
+      border: 1px solid grey;
+      border-radius: 5px;
     }
 
     button {
-        background-color: blue;
-        color: white;
-        border-radius: 20px;
-        border: 1px solid grey;
+      background-color: blue;
+      color: white;
+      border-radius: 20px;
+      border: 1px solid grey;
     }
 
-    h1, #Result {
-        font-weight: bold;
-        font-family: Arial, sans-serif;
+    h1,
+    #Result {
+      font-weight: bold;
+      font-family: Arial, sans-serif;
     }
-    
 
+    .error {
+      color: red;
+      font-size: 14px;
+      margin-top: 5px;
+      text-align: center;
+    }
+
+    .success {
+      color: green;
+      font-size: 16px;
+      margin-top: 5px;
+    }
   </style>
   <body>
-        <div class="container">
-          <h1>Factorial Calculator</h1>
-          <input type="text" id="NumberInput" placeholder="Enter the number" />
-          <button id="btn">Validate & Calculate</button>
-          <p id="Result"></p>
-        </div>
+    <div class="container">
+      <h1>Factorial Calculator</h1>
+      <input type="text" id="NumberInput" placeholder="Enter the number" />
+      <button id="btn">Validate & Calculate</button>
+      <p id="Result"></p>
+    </div>
   </body>
   <script>
     let input = document.getElementById("NumberInput");
@@ -67,7 +79,9 @@
       let num = parseInt(input.value);
       let original = num;
       if (isNaN(num) || num < 0) {
-        result.textContent = "Enter a Valid positive Number";
+        result.textContent =
+          "Please enter a valid input number (non-negative integer).";
+        result.className = "error";
         return;
       }
       let temp = 1;
