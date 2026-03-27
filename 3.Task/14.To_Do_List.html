@@ -17,7 +17,7 @@
       background-color: white;
       justify-content: flex-start;
       align-items: center;
-      width: 400px;+
+      width: 400px;
       margin: 10px;
       max-height: 80vh;
       border-radius: 10px;
@@ -43,6 +43,7 @@
     .input-box {
       display: flex;
       gap: 10px;
+      padding: 15px;
     }
     .input-box input {
       flex: 1;
@@ -58,70 +59,111 @@
       background-color: rgb(118, 44, 221);
       color: white;
       padding: 8px;
-      
       border-radius: 5px;
       box-sizing: border-box;
       text-align: center;
     }
     .header {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 0;
-        margin-bottom: 15px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-bottom: 15px;
     }
 
     .header h1,
     .header p {
-        margin: 0;
-        
+      margin: 0;
+    }
 
+    .list-container {
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      width: 300px;
+      margin: 10px;
+      border: 1px solid black;
+    }
+
+    .input-box {
+      background-color: rgb(239, 236, 232);
+      padding: 5px 19px;
+    }
+
+    #task-list {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0px;
+    }
+
+    #task-list li {
+      margin: 8px 0;
+      padding: 10px;
+      
     }
   </style>
   <body>
     <div class="container">
-        <div class="header">
-            <h1>My tasks</h1>
-            <p>stay organized and productive</p>
-            <p>0 tasks</p>
-        </div>
-      <div class="input-box">
-        <input type="text" id="taskInput" placeholder="Add a new task" />
-        <button id="addBtn">+</button>
+      <div class="header">
+        <h1>My tasks</h1>
+        <p>stay organized and productive</p>
+        <p>0 tasks</p>
       </div>
-
-      <ul id="list"></ul>
+      <div class="list-container">
+        <ul id="task-list"></ul>
+      </div>
+      <div id="app-status" role="status"></div>
+      <div class="input-box">
+        <input type="text" id="task-input" placeholder="Add a new task" />
+        <button id="add-button">+</button>
+      </div>
     </div>
   </body>
   <script>
-    let input = document.getElementById("taskInput");
-    let button = document.getElementById("addBtn");
-    let ul = document.getElementById("list");
+    let taskInputEle = document.getElementById("task-input");
+    let addButtonEle = document.getElementById("add-button");
+    // let statusArea = document.getElementById("statusArea");
+    let taskListEle = document.getElementById("task-list");
 
-    button.addEventListener("click", function () {
-      let task = input.value;
-      if (task === "") return;
+    addButtonEle.addEventListener("click", function () {
+      // Doubt =  name of variables
+      let task = taskInputEle.value;
+      if (task === "") {
+        alert("Please enter a task!");
+        return;
+      }
 
-      let li = document.createElement("li"); //
+      // New list item (li) banaya
+      let li = document.createElement("li");
       li.textContent = task;
-
-      // delete button
-      let del = document.createElement("button");
-      del.textContent = "X";
-
-      del.addEventListener("click", function () {
+      
+      let editBtn = document.createElement("button");
+      editBtn.textContent = "E";
+      editBtn.addEventListener("click", function () {
+        alert("editBtn" + taskValue);
+      });
+      
+      let deleteBtn = document.createElement("button");
+      deleteBtn.textContent = "X";
+      deleteBtn.addEventListener("click", function() {
         li.remove();
       });
+
+
 
       // mark complete
       li.addEventListener("click", function () {
         li.style.textDecoration = "line-through";
       });
 
-      li.appendChild(del);
-      ul.appendChild(li);
+      taskListEle.appendChild(li);
+      li.appendChild(deleteBtn);
+      li.appendChild(editBtn);
 
-      input.value = "";
+      taskInputEle.value = "";
     });
   </script>
 </html>

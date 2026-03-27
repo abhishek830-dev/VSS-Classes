@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anagram Checker</title>
+  </head>
+  <style>
+    body {
+      display: flex;
+      background-color: rgb(181 182 213);
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: white;
+      justify-content: center;
+      align-items: center;
+      width: 400px;
+      margin: 10px;
+      height: 50vh;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    input,
+    button {
+      width: 300px;
+      padding: 10px;
+      margin-top: 10px;
+      box-sizing: border-box;
+      border: 1px solid grey;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: blue;
+      color: white;
+      border-radius: 20px;
+      border: 1px solid grey;
+    }
+
+    .error {
+      color: red;
+      /* font-size: 14px;
+      margin-top: 5px;
+      text-align: center; */
+    }
+
+    .success {
+      color: #08dd08;;
+      /* font-size: 16px;
+      margin-top: 5px; */
+    }
+  </style>
+
+  <body>
+    <div class="container">
+      <h1>Anagram Checker</h1>
+      <input
+        type="text"
+        id="string-input1"
+        placeholder="Enter the first word"
+      />
+      <input
+        type="text"
+        id="string-input2"
+        placeholder="Enter the second word"
+      />
+      <button id="btn">Check</button>
+      <p id="Result"></p>
+
+    </div>
+  </body>
+
+  <script>
+    let stringInput1Ele = document.getElementById("string-input1");
+    let stringInput2Ele = document.getElementById("string-input2");
+    let btnEle = document.getElementById("btn");
+    let ResultEle = document.getElementById("Result");
+
+    btnEle.addEventListener("click", function () {
+      let str1 = stringInput1Ele.value.trim();
+      let str2 = stringInput2Ele.value.trim();
+
+      if (str1 === "" || str2 === "") {
+        ResultEle.textContent = "Please enter both words.";
+        ResultEle.className = "error";
+        return;
+      }
+
+      if (str1.length != str2.length) {
+        ResultEle.textContent = "Not an Anagram";
+        ResultEle.className = "error";
+        return;
+      }
+
+      if (str1.length === str2.length) {
+        let sorted1 = str1.toLowerCase().split("").sort().join("");
+        let sorted2 = str2.toLowerCase().split("").sort().join("");
+        if (sorted1 === sorted2) {
+          ResultEle.textContent = "It's an Anagram";
+          ResultEle.className = "success";
+        } else {
+          ResultEle.textContent = "Not an Anagram";
+          ResultEle.className = "error";
+        }
+      }
+
+    });
+  </script>
+</html>
