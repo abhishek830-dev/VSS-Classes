@@ -48,14 +48,20 @@
       font-weight: bold;
       font-family: Arial, sans-serif;
     }
+
     .error {
       color: red;
-    }
-    .success {
-      color: rgb(6 183 6);
+      font-size: 14px;
+      margin-top: 5px;
+      text-align: center;
     }
 
-  
+    .success {
+      color: green;
+      font-size: 14px;
+      margin-top: 5px;
+      text-align: center;
+    }
   </style>
   <body>
     <div class="container">
@@ -78,15 +84,14 @@
           "Please enter a valid input number (non-negative integer).";
         result.className = "error";
         return;
-      } else {
-        let temp = 1;
-        while (num > 1) {
-          temp = temp * num;
-          num--;
-        }
-        result.textContent = `Factorial of ${original} is ${temp}`;
-        result.className = "success";
       }
+      let temp = 1;
+      while (num > 1) {
+        temp = temp * num;
+        num--;
+      }
+      result.textContent = `Factorial of ${original} is ${temp}`;
+      result.className = "success";
     });
   </script>
 </html>
