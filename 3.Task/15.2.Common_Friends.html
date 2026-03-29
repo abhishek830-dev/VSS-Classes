@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Common Friends</title>
+  </head>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      background-color: rgb(236, 236, 236);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .main-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        width: 400px;
+        border: 1px solid grey;
+        border-radius: 10px;
+    }
+
+    .A_container {
+        display: flex;
+        background-color: rgb(236, 236, 236);
+        gap: 10px;
+    }
+
+    .B_container {
+        display: flex;
+        background-color: rgb(236, 236, 236);
+        gap: 10px;
+    }
+
+  </style>
+  <body>
+    <div class="main-container">
+      <h1>Mutual Friends</h1>
+      <div class="container">
+        <div class="A_container">
+            <h2>User A</h2>
+        </div>
+        <div class="B_container">
+            <h2>User B</h2>
+        </div>
+      </div>
+      <div class="result">
+        <h1>Common Friends</h1>
+        <p id="output"></p>
+        <button id="btn">show Common Friends</button>
+
+      </div>
+    </div>
+  </body>
+  <script>
+    const userA = ["Amit", "Rohit", "Priya", "Neha", "Karan", "Sneha", "Vikas", "Anjali", "Rahul", "Simran"];
+    const userB = ["Rohit", "Neha", "Karan", "Simran", "Arjun", "Pooja", "Vikas", "Meena", "Rahul", "Tina"];
+
+    const button = document.getElementById("btn");
+    const output = document.getElementById("output");
+
+    button.addEventListener("click", function() {
+
+    let common = [];
+        for (let i = 0; i < userA.length; i++) {
+            if (userB.includes(userA[i])) {
+                common.push(userA[i]);
+            }
+        }
+        console.log(common);
+    });
+
+  </script>
+</html>

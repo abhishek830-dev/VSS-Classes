@@ -16,15 +16,16 @@
 
     .container {
       background-color: white;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
       width: 400px;
       margin: 10px;
-      height: 50vh;
+      /* height: 50vh; */
       border-radius: 10px;
       display: flex;
       flex-direction: column;
       gap: 10px;
+      padding: 10px;
     }
 
     input,
@@ -44,6 +45,10 @@
       border: 1px solid grey;
     }
 
+    #Result {
+      font-size: 20px;
+    }
+
     .error {
       color: red;
       /* font-size: 14px;
@@ -52,7 +57,7 @@
     }
 
     .success {
-      color: #08dd08;;
+      color: #08dd08;
       /* font-size: 16px;
       margin-top: 5px; */
     }
@@ -61,19 +66,10 @@
   <body>
     <div class="container">
       <h1>Anagram Checker</h1>
-      <input
-        type="text"
-        id="string-input1"
-        placeholder="Enter the first word"
-      />
-      <input
-        type="text"
-        id="string-input2"
-        placeholder="Enter the second word"
-      />
+      <input type="text" id="string-input1" placeholder="Enter the first word"/>
+      <input type="text" id="string-input2" placeholder="Enter the second word"/>
       <button id="btn">Check</button>
       <p id="Result"></p>
-
     </div>
   </body>
 
@@ -110,7 +106,6 @@
           ResultEle.className = "error";
         }
       }
-
     });
   </script>
 </html>
