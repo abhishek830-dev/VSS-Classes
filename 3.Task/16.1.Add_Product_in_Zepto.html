@@ -56,6 +56,8 @@
 
       .actions {
         display: flex;
+        justify-content: center;
+        align-items: center;
         font-size: 14px;
       }
 
@@ -159,13 +161,23 @@
         width: fit-content;
       }
 
-      .login {
+      .login, #cart {
+        display: inline-flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
         margin: 10px;
-        padding: 10px;
+        padding: 8px, 12px;
+        cursor: pointer;
+        gap: 10px;
       }
-      #cart {
-        margin: 10px;
-        padding: 10px
+
+      #cart-count {
+        background-color: #ff2c7d;
+        color: white;
+        padding: 2px, 1px;
+        border-radius: 50%;
+        font-size: 15px;
       }
 
   
@@ -187,12 +199,33 @@
       </div>
 
       <div class="actions">
-        <div class="login">Login</div>
-        <div id="cart">Cart 🛒
+        <div class="login">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 26 26"><circle cx="12.5" cy="11.168" r="3.5" stroke="#000" stroke-linecap="round" stroke-width="1.6"/><circle cx="12.5" cy="13.5" r="10.5" stroke="#000" stroke-width="1.6"/><path stroke="#000" stroke-linecap="round" stroke-width="1.6" d="M19.5 21.324c-.413-1.24-1.323-2.337-2.588-3.119C15.646 17.424 14.095 17 12.5 17s-3.146.424-4.412 1.205c-1.265.782-2.175 1.878-2.588 3.119"/></svg>
+          <span>Profile</span>
+        </div>
+        <div id="cart">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" color="#000"><path fill="#000" d="M10.559 22c.828 0 1.5-.683 1.5-1.525 0-.843-.672-1.526-1.5-1.526-.829 0-1.5.683-1.5 1.526 0 .842.671 1.525 1.5 1.525M17.618 22c.828 0 1.5-.683 1.5-1.525 0-.843-.672-1.526-1.5-1.526-.829 0-1.5.683-1.5 1.526 0 .842.671 1.525 1.5 1.525"/><path stroke="#000" stroke-linecap="round" stroke-width="1.8" d="M2 2.063c1.765 0 2.941-.565 4.118 1.695m0 0h13.128a2 2 0 0 1 1.902 2.618l-1.64 5.04a2 2 0 0 1-1.902 1.381H9.06m-2.941-9.04 2.94 9.04m11.766 3.955H9.272a1.977 1.977 0 0 1-1.978-1.977v-.213c0-.975.79-1.765 1.765-1.765v0"/></svg>
+          <span>Cart</span>
+          <span id="cart-count">0</span>
         </div>
       </div>
 
-      <div id="cart-count" style="padding: 20px; background: white"></div>
+      <!-- Sidebar Overlay -->
+<div id="cartOverlay" onclick="toggleCart()" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:99;"></div>
+
+<!-- Sidebar Drawer -->
+<div id="sideCart" style="position:fixed; top:0; right:-350px; width:300px; height:100%; background:white; z-index:100; transition:0.3s; padding:20px; box-shadow:-5px 0 15px rgba(0,0,0,0.1);">
+  <div style="display:flex; justify-content:space-between; border-bottom:1px solid #eee; padding-bottom:10px;">
+    <h2 style="margin:0">My Cart</h2>
+    <button onclick="toggleCart()" style="border:none; background:none; font-size:20px; cursor:pointer;">&times;</button>
+  </div>
+  <p style="text-align:center; margin-top:50px; color:gray;">Your Cart is empty. Please add some products!</p>
+</div>
+
+<div id="empty-box"></div>
+
+      
+
 
     </div>
 
@@ -999,14 +1032,34 @@
         container.appendChild(card);
       });
 
-      function updatebasketUI() {
-        let totalItems = 0;
+  function updatebasketUI() {
+  const cartCount = document.getElementById('cart-count');
+  const sideCart = document.getElementById('sideCart');
+  cartCount.innerText = basket.length;
 
-        basket.forEach((item) => {
-          totalItems += item.quantity;
-        });
-        document.getElementById("cart-count").innerText = totalItems;
-      }
+  let cartHTML = `
+    <div style="display:flex; justify-content:space-between; border-bottom:1px solid #eee; padding-bottom:10px;">
+      <h2 style="margin:0; font-size:18px;">My Cart</h2>
+      <button onclick="toggleCart()" style="border:none; background:none; font-size:20px; cursor:pointer;">&times;</button>
+    </div>
+  `;
+
+  if (basket.length === 0) {
+    cartHTML += `<p style="text-align:center; margin-top:50px; color:gray;">Empty Cart</p>`;
+  } else {
+    // LOOP: Basket se items nikal kar UI mein dikhana
+    basket.forEach((item, index) => {
+      cartHTML += `
+        <div style="display:flex; justify-content:space-between; padding:12px 0; border-bottom:1px solid #f0f0f0;">
+          <span style="font-size:13px; font-weight:600;">${item.name}</span>
+          <button onclick="removeFromBasket(${index})" style="color:#ff2c7d; border:none; background:none; cursor:pointer; font-weight:bold;">Remove</button>
+        </div>
+      `;
+    });
+  }
+
+  sideCart.innerHTML = cartHTML;
+}
 
       function addTobasket(product, btn, index) {
         let existing = basket.find((item) => item.id === index);
@@ -1014,12 +1067,43 @@
           console.log("Existing", existing);
           existing.quantity++;
         } else {
-          basket.push({ ...product, quantity: 1, id: index });
+          basket.push({ ...product, quantity: 1, id: index }); // Spread Operator(ES6 feature)
         }
         updatebasketUI(); // **Important
         //renderbasketItems();
-        console.log(basket);
+        console.log(basket); 
       }
+      function toggleCart() {
+    const cart = document.getElementById('sideCart');
+    const overlay = document.getElementById('cartOverlay');
+    
+    if (cart.style.right === '0px') {
+      cart.style.right = '-350px';
+      overlay.style.display = 'none';
+    } else {
+      cart.style.right = '0px';
+      overlay.style.display = 'block';
+    }
+  }
+
+  function removeFromBasket(index) {
+  basket.splice(index, 1);
+  updateCartUI();
+}
+  
+  // Cart icon par click lagane ke liye
+  document.getElementById('cart').onclick = toggleCart;
+
+  // // Bonus: Add button click hone par count badhao (Dummy logic)
+  //     let count = 0;
+  //     document.addEventListener('click', function(e) {
+  //       if(e.target.classList.contains('add-btn')) {
+  //          count++;
+  //          document.getElementById('cart-count').innerText = count;
+  //          // Chaho toh cart khol bhi sakte ho
+  //          // toggleCart(); 
+  //       }
+  //     });
     </script>
   </body>
 </html>

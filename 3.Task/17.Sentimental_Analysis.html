@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sentimental Analysis</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .container {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        width: 400px;
+      }
+
+      h2 {
+        margin-bottom: 20px;
+      }
+
+      input {
+        width: 90%;
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #6b6868;
+        margin-bottom: 20px;
+        outline: none;
+      }
+
+      .buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      button {
+        margin: 5px;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 8px;
+        background: #667eea;
+        color: white;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      button:hover {
+        background: #5a67d8;
+        transform: scale(1.05);
+      }
+
+      #result {
+        margin-top: 20px;
+        font-weight: bold;
+        color: #333;
+        font-size: large;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Sentimental Analysis</h2>
+      <input type="text" id="inputText" placeholder="Enter the text" />
+      <br /><br />
+
+      <div class="buttons">
+        <button id="upperBtn">Uppercase</button>
+        <button id="lowerBtn">Lowercase</button>
+        <button id="sentenceBtn">Sentence case</button>
+        <button id="inputValidator">Validator(alphanumeric 7 digit)</button>
+        <button id="sentimentBtn">Sentiment Analysis</button>
+      </div>
+
+      <p id="result"></p>
+    </div>
+
+    <script>
+      const input = document.getElementById("inputText");
+      const result = document.getElementById("result");
+
+      const upperBtn = document.getElementById("upperBtn");
+      const lowerBtn = document.getElementById("lowerBtn");
+      const sentenceBtn = document.getElementById("sentenceBtn");
+      const inputValidator = document.getElementById("inputValidator");
+      const sentimentBtn = document.getElementById("sentimentBtn");
+
+      function convertToUpper() {
+        result.innerText = input.value.toUpperCase();
+      }
+
+      function convertToLower() {
+        result.innerText = input.value.toLowerCase();
+      }
+
+      function convertToSentenceCase() {
+        const text = input.value;
+        result.innerText =
+          text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
+      }
+
+      function validate() {
+        const value = input.value;
+        const regex = /^[A-Za-z0-9]{7}$/;
+
+        if (!regex.test(value)) {
+          result.textContent = "❌ Must be exactly 7 letters/numbers";
+          result.className = "error";
+        } else {
+          result.textContent = "✅ Valid Input!";
+          result.className = "success";
+        }
+      }
+
+      function checkSentiment() {
+        let text = input.value.toLowerCase();
+
+        text = text.replace(/[^a-zA-Z ]/g, "");
+
+        const positiveWords = [
+          "good",
+          "happy",
+          "love",
+          "great",
+          "awesome",
+          "nice",
+        ];
+        const negativeWords = ["bad", "sad", "hate", "angry", "worst", "poor"];
+
+        let score = 0;
+
+        positiveWords.forEach((word) => {
+          if (text.includes(word)) score++;
+        });
+
+        negativeWords.forEach((word) => {
+          if (text.includes(word)) score--;
+        });
+
+        if (score > 0) {
+          result.innerText = "Positive";
+          result.style.color = "green";
+        } else if (score < 0) {
+          result.innerText = "Negative";
+          result.style.color = "red";
+        } else {
+          result.innerText = "Neutral";
+          result.style.color = "gray";
+        }
+      }
+
+      upperBtn.addEventListener("click", convertToUpper);
+      lowerBtn.addEventListener("click", convertToLower);
+      sentenceBtn.addEventListener("click", convertToSentenceCase);
+      inputValidator.addEventListener("click", validate);
+      sentimentBtn.addEventListener("click", checkSentiment);
+    </script>
+  </body>
+</html>
